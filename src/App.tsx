@@ -2,31 +2,36 @@ import React from "react";
 import "./App.css";
 import { Navbar } from "./components/navbar/Navbar";
 import { Board } from "./components/board/Board";
-import { Box } from "@mui/material";
+import { Box, Grid, Typography } from "@mui/material";
 
 function App() {
-  const styleNavabr = {
+  const styleNavbar = {
     position: "absolute" as "absolute",
     top: "1%",
     left: "1%",
   };
   return (
-    <Box
-      className="App"
-      sx={{
-        width: "100%",
-        height: "100vh",
-        display: "flex",
-        justifyContent: "start",
-        alignItems: "center",
-        padding: "0 20%",
-      }}
-    >
-      <Box sx={styleNavabr}>
-        <Navbar />
-      </Box>
-      <Board />
-    </Box>
+    <Grid className="App">
+      <Grid container spacing={1}>
+        <Grid
+          item
+          xs={1}
+          sx={{
+            height: "100vh",
+          }}
+        >
+          <Navbar />
+        </Grid>
+        <Grid item xs={9} container spacing={3} direction={"column"}>
+          <Grid item>
+            <Typography variant="h1">Notes-project</Typography>
+          </Grid>
+          <Grid item>
+            <Board />
+          </Grid>
+        </Grid>
+      </Grid>
+    </Grid>
   );
 }
 
